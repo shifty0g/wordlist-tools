@@ -10,6 +10,10 @@ Pulls down wordlist collcetions such as Seclists, betterpasslists...est
 
 Install
 ========
-copy and paste the following to install wordlist :) 
+copy and paste the following into a root shell to install wordlists :) 
 
+```python
 cd /tmp && wget https://raw.githubusercontent.com/shifty0g/get-wordlists/main/get-wordlists.sh && chmod +x get-wordlists.sh && ./get-wordlists.sh
+```
+
+
