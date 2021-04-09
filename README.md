@@ -6,7 +6,8 @@ works best on kali
 Features
 =============
 Sets /wordlists folder
-Pulls down wordlist collcetions such as Seclists, betterpasslists...est
+
+Pulls down wordlist collections such as Seclists, betterpasslists...est
 
 Install
 ========
