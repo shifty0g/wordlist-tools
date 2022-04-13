@@ -34,6 +34,8 @@ cd tmp && wget https://raw.githubusercontent.com/shifty0g/wordlist-tools/main/wo
 Useage 
 ===============
 
+as long as the `wordlist-tools.sh` file has been sourced 
+
 **wordlist-install** - This function will download and install popular wordlist repos from github into /wordlists. as long as the wordlists-toos.sh file is sourced
 
 ### Variable 
@@ -59,12 +61,26 @@ i like to use it with grep to narrow things down
 
 ```bash
 wordlists | grep passwords
-wordlists | grep passwords
+
+/wordlists/betterdefaultpasslist/all-passwords.txt
+/wordlists/SecLists/Passwords/xato-net-10-million-passwords-100000.txt
+/wordlists/SecLists/Passwords/Common-Credentials/top-passwords-shortlist.txt
+/wordlists/SecLists/Passwords/Common-Credentials/worst-passwords-2017-top100-slashdata.txt
+/wordlists/SecLists/Passwords/Common-Credentials/500-worst-passwords.txt
+/wordlists/SecLists/Passwords/Common-Credentials/common-passwords-win.txt
+/wordlists/SecLists/Passwords/Common-Credentials/100k-most-used-passwords-NCSC.txt
+/wordlists/SecLists/Passwords/Common-Credentials/top-20-common-SSH-passwords.txt
+/wordlists/SecLists/Passwords/url-to-download-passwords.md
+....
+
+
+
+wordlists | grep users
 ```
 
 
 
-source
+
 Resoruces
 ===============
 https://www.outpost9.com/files/WordLists.html

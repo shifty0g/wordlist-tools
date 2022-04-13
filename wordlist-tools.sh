@@ -58,8 +58,8 @@ export WORDLIST_MSF_UNIX_USERS="/usr/share/metasploit-framework/data/wordlists/u
 
 #
 # some helpful functions to quickly list out files 
-alias wordlists='find -L /wordlists/ -type f '
-alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f '
+alias wordlists='find -L /wordlists -type f 2>/dev/null'
+alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f 2>/dev/null'
 
 
 
