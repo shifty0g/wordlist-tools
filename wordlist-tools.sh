@@ -17,13 +17,8 @@ VERSION=0.9
 #
 #
 
-
-
 export currentdir=$(pwd)
 
-echo ""
-echo "Thankyou to everyone who put these lists together :):)"
-echo ""
 
 
 # this is the main locatiomn where everything is 
@@ -64,17 +59,17 @@ export WORDLIST_MSF_UNIX_USERS="/usr/share/metasploit-framework/data/wordlists/u
 #
 # some helpful functions to quickly list out files 
 alias wordlists='find -L /wordlists/ -type f '
-alias wordlists-mine='find -L $MYWORDLISTSDIR -type f '
 alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f '
 
 
 
-
-
-
-
-
 function wordlists-install () {
+
+echo ""
+echo "Thankyou to everyone who put these lists together :):)"
+echo "go make a coffee"
+
+
 # this will link the default kali wordlists folder so it is accessble via /wordlists .. nice and easy
 ln -s /usr/share/wordlists $WORDLISTDIR 2>/dev/null  >/dev/null
 cd $WORDLISTDIR
