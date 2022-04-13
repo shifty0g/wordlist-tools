@@ -9,10 +9,13 @@ This is a work in progress so expect bugs. Please let me know if there are i ssu
 
 Features
 =============
-* Sets /wordlists folder
-* install wordlists function that will pull down wordlist popular wordlists collections such as Seclists, betterpasslists...est
-* has variables so they can be quickly used 
+* Sets /wordlists folder .. everything in 1 place :)
+* adds a sym link to the kali and metasploit wordlists 
+* install-wordlists function that will pull down wordlists from popular wordlists collections on github such as Seclists, betterpasslists...est installing all them in /wordlists
+* Has variables so they can be quickly used 
 * a few aliass for quickly findings wordlists
+
+
 
 Install
 ========
@@ -40,13 +43,18 @@ as long as the `wordlist-tools.sh` file has been sourced
 
 ### Variable 
 
-There are many alias' I have included which are parths to certain wordlists. if you have tab completion you can call then with $WORDLIST_ <tab>
+There are many alias' I have included which are parths to certain wordlists. if you have tab completion you can call then with **$WORDLIST_ <tab>** - works great with zsh
+
+```bash
+export WORDLIST_DNS_110K="$SECLISTSDIR//Discovery/DNS/subdomains-top1million-110000.txt"
+export WORDLIST_MSF_SNMP="/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt"
+export WORDLIST_COMMON="$WORDLISTDIR/SecLists/Discovery/Web-Content/common.txt"
+```
+
 
 for example you want to run gobuster you could use the variable path to the common.txt as shwon below.  it just makes things a bit quicker  
 
 ```bash
-export WORDLIST_COMMON="$WORDLISTDIR/SecLists/Discovery/Web-Content/common.txt"
-
 gobuster dir -u $URL -f -k -w $WORDLIST_COMMON -o gobuster.txt -s '200,204,302,307,500,403,401' -e -q -t 15
 ```
 
@@ -74,10 +82,18 @@ wordlists | grep passwords
 ....
 
 
-
 wordlists | grep users
+/wordlists/SecLists/Payloads/Flash/xssproject.swf
+/wordlists/SecLists/Fuzzing/XSS/xss-without-parentheses-semi-colons-portswigger.txt
+/wordlists/my_wordlists/unsorted/xss-payload-list.txt
+/wordlists/my_wordlists/web/FuzzLists/xss_escape_chars.txt
+/wordlists/my_wordlists/web/FuzzLists/xss_find_inject.txt
+....
 ```
 
+then all u need to do is copy and paste to use it with your tool whatever 
+
+feel free to add more alias' in the `wordlists-tools.sh` file - just try to use the full path (realpath)  :) 
 
 
 
