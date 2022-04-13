@@ -51,6 +51,9 @@ export WORDLIST_MSF_SNMP="/usr/share/metasploit-framework/data/wordlists/snmp_de
 export WORDLIST_COMMON="$WORDLISTDIR/SecLists/Discovery/Web-Content/common.txt"
 ```
 
+![tab complete](1.jpg)
+
+
 
 for example you want to run gobuster you could use the variable path to the common.txt as shwon below.  it just makes things a bit quicker  
 
