@@ -5,7 +5,8 @@ VERSION=0.9
 #
 # TO DO
 #==============
-# add more key seclists
+# add more key wordlists
+# a
 # create and build up my wordlists
 # add my custom lists + exam one
 # update install so git checks for update
@@ -139,6 +140,9 @@ git clone https://github.com/SilverPoision/a-full-list-of-wordlists/
 mv a-full-list-of-wordlists/Wordlists/burp_pack/ .
 rm a-full-list-of-wordlists -rf
 
+
+
+
 # Other Sources 
 
 #https://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/
@@ -146,5 +150,7 @@ rm a-full-list-of-wordlists -rf
 
 cd $currentdir
 }
+
+
 
 
