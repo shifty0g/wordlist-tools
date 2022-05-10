@@ -135,11 +135,25 @@ git clone https://github.com/govolution/betterdefaultpasslist
 echo "[+] webapp wordlists"
 git clone https://github.com/p0dalirius/webapp-wordlists
 
-
+echo "[+] a-full-list-of-wordlists"
 git clone https://github.com/SilverPoision/a-full-list-of-wordlists/
 mv a-full-list-of-wordlists/Wordlists/burp_pack/ .
 rm a-full-list-of-wordlists -rf
 
+echo "[+] big-list-of-naughty-strings"
+git clone https://github.com/minimaxir/big-list-of-naughty-strings.git
+
+echo "[+] fuzzdb"
+git clone https://github.com/fuzzdb-project/fuzzdb.git
+
+echo "[+] wfuzz"
+git clone  https://github.com/xmendez/wfuzz.git
+
+echo "[+] foospidy-payloads"
+git clone https://github.com/foospidy/payloads.git -o foospidy-payloads
+
+
+#git clone https://github.com/danielmiessler/RobotsDisallowed.git
 
 
 
