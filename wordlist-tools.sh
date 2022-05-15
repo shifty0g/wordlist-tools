@@ -59,6 +59,7 @@ export WORDLIST_MSF_UNIX_USERS="/usr/share/metasploit-framework/data/wordlists/u
 
 #
 # some helpful functions to quickly list out files 
+alias find-wordlists="wordlists"
 alias wordlists='find -L /wordlists -type f 2>/dev/null'
 alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f 2>/dev/null'
 
@@ -108,9 +109,6 @@ git clone https://github.com/berzerk0/Probable-Wordlists/
 echo "[+] Xajkep - WOrdlists "
 git clone https://github.com/xajkep/wordlists xajkep-wordlists
 
-echo "[+] glpi"
-git clone https://github.com/p0dalirius/webapp-wordlists/tree/main/IT-Asset-Management/glpi glpi
-
 echo "[+] kkrypt0nn "
 git clone https://github.com/kkrypt0nn/Wordlists kkrypt0nn-wordlists
 
@@ -135,11 +133,25 @@ git clone https://github.com/govolution/betterdefaultpasslist
 echo "[+] webapp wordlists"
 git clone https://github.com/p0dalirius/webapp-wordlists
 
-
+echo "[+] a-full-list-of-wordlists"
 git clone https://github.com/SilverPoision/a-full-list-of-wordlists/
 mv a-full-list-of-wordlists/Wordlists/burp_pack/ .
 rm a-full-list-of-wordlists -rf
 
+echo "[+] big-list-of-naughty-strings"
+git clone https://github.com/minimaxir/big-list-of-naughty-strings.git
+
+echo "[+] fuzzdb"
+git clone https://github.com/fuzzdb-project/fuzzdb.git
+
+echo "[+] wfuzz"
+git clone  https://github.com/xmendez/wfuzz.git
+
+echo "[+] foospidy-payloads"
+git clone https://github.com/foospidy/payloads.git -o foospidy-payloads
+
+
+#git clone https://github.com/danielmiessler/RobotsDisallowed.git
 
 
 
