@@ -150,6 +150,12 @@ git clone  https://github.com/xmendez/wfuzz.git
 echo "[+] foospidy-payloads"
 git clone https://github.com/foospidy/payloads.git -o foospidy-payloads
 
+echo "[+] j3ers3-PassList"
+git clone https://github.com/j3ers3/PassList j3ers3-PassList
+
+echo "[+] OneListForAll"
+git clone https://github.com/six2dez/OneListForAll
+
 
 #git clone https://github.com/danielmiessler/RobotsDisallowed.git
 
