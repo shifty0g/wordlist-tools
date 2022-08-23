@@ -48,13 +48,18 @@ export WORDLIST_WEB_ROBOTS1k="$SECLISTSDIR/Discovery/Web-Content/RobotsDisallowe
 export WORDLIST_ROCKYOU="/usr/share/wordlists/rockyou.txt"
 export WORDLIST_USERNAMES_SHORT="$SECLISTSDIR/Usernames/top-usernames-shortlist.txt"
 export WORDLIST_USERNAMES_SHORT="$SECLISTSDIR/Usernames/top-usernames-shortlist.txt"
-export WORDLIST_PASS_TOP100k="$SECLISTSDIR/Passwords/Common-Credentials/10-million-password-list-top-100000.txt"
 export WORDLIST_SUBDOMAINS_TOP5k="$SECLISTSDIR/Discovery/DNS/subdomains-top1million-5000.txt"
 
 # metasploit wordlists - /usr/share/metasploit-framework/data/wordlists/
 export WORDLIST_MSF_SNMP="/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt"
 export WORDLIST_MSF_UNIX_USERS="/usr/share/metasploit-framework/data/wordlists/unix_users.txt"
 
+# Pass Lists
+export PASS_password="/wordlists/my_wordlists/passwords/pass_keyword-password.txt"
+export PASS_top16k="/wordlists/my_wordlists/passwords/pass_top-16k.txt"
+export PASS_top3k="/wordlists/my_wordlists/passwords/pass_top-3k.txt"
+export PASS_top500="/wordlists/my_wordlists/passwords/pass_top-500.txt"
+export PASS_top100k="$SECLISTSDIR/Passwords/Common-Credentials/10-million-password-list-top-100000.txt"
 
 
 #
@@ -64,6 +69,25 @@ alias wordlists='find -L /wordlists -type f 2>/dev/null'
 alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f 2>/dev/null'
 
 
+
+function UserAsPass {
+export OUTPUT="newpass.txt"
+# this will add users to the password list. it will reverse them too 
+
+echo "UserAsPass - Add usernames and blanks to wordlist"
+echo "================================="
+if [ ! -z "$1" ]||[ ! -z "$2" ]; then
+	cat $1 > $OUTPUT
+	echo "" >> $OUTPUT
+	cat $1 | rev >> $OUTPUT
+	echo " " >> $OUTPUT
+	cat $2 >> $OUTPUT
+	echo "Boom! output: $(realpath $OUTPUT)"
+else
+	echo "[*] Usege: $0 [users file] [pass file]"
+fi
+
+}
 
 function wordlists-install () {
 
@@ -156,9 +180,20 @@ git clone https://github.com/j3ers3/PassList j3ers3-PassList
 echo "[+] OneListForAll"
 git clone https://github.com/six2dez/OneListForAll
 
+echo "[+] Default-Credentials"
+https://github.com/netbiosX/Default-Credentials
 
 #git clone https://github.com/danielmiessler/RobotsDisallowed.git
 
+echo "[+] Brutas"
+git clone https://github.com/tasooshi/brutas
+
+echo "[+] Millionpass.txt"
+git clone https://github.com/shubhamg0sai/millionpass.txt
+
+echo "[+] Statistically Likely Usernames"
+git clone https://github.com/purpleracc00n/statistically-likely-usernames
+# orginal - https://github.com/insidetrust/statistically-likely-usernames
 
 
 # Other Sources 
