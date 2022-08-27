@@ -161,6 +161,7 @@ echo "[+] a-full-list-of-wordlists"
 git clone https://github.com/SilverPoision/a-full-list-of-wordlists/
 mv a-full-list-of-wordlists/Wordlists/burp_pack/ .
 rm a-full-list-of-wordlists -rf
+mv burp_pack a-full-list-of-wordlists
 
 echo "[+] big-list-of-naughty-strings"
 git clone https://github.com/minimaxir/big-list-of-naughty-strings.git
