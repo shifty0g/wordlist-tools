@@ -74,21 +74,46 @@ alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlis
 
 
 
-function UserAsPass {
-export OUTPUT="newpass.txt"
+function PWListExtra {
 # this will add users to the password list. it will reverse them too 
+# needs duplicut 
 
-echo "UserAsPass - Add usernames and blanks to wordlist"
+export OUTPUT="newpass.txt"
+
+echo "PWListExtra - adds extra stuff to passwordlist"
 echo "================================="
 if [ ! -z "$1" ]||[ ! -z "$2" ]; then
-	cat $1 > $OUTPUT
-	echo "" >> $OUTPUT
-	cat $1 | rev >> $OUTPUT
-	echo " " >> $OUTPUT
-	cat $2 >> $OUTPUT
+	# add some silly basic passwords - https://nordpass.com/most-common-passwords-list/
+	echo "password" >> tempass
+	echo "qwerty" >> tempass
+	echo "Password123!" >> tempass
+	echo "password1" >> tempass
+    echo "12345" >> tempass
+	echo "123456" >> tempass
+	echo "12345678" >> tempass
+	echo "123123" >> tempass
+	echo "123456789" >> tempass
+	echo "111111" >> tempass
+	echo "liverpool" >> tempass
+	
+	# blanks 
+	echo "" >> tempass
+	echo " " >> tempass
+	echo "  " >> tempass
+	
+	# users 
+	cat $1 >> tempass
+	cat $1 | rev >> tempass
+	
+	# pass 
+	cat $2 >> tempass
+	
+	# remove dupes using duplicut
+	duplicut tempass -o $OUTPUT
+	
 	echo "Boom! output: $(realpath $OUTPUT)"
 else
-	echo "[*] Usege: $0 [users file] [pass file]"
+	echo "[*] USEAGE: $0 [users file] [pass file]"
 fi
 
 }
@@ -215,6 +240,9 @@ git clone https://github.com/maudits/PyDog
 
 echo "[+] namemash"
 git clone https://github.com/purpleracc00n/namesmash
+cd namesmash
+wget https://gist.githubusercontent.com/superkojiman/11076951/raw/74f3de7740acb197ecfa8340d07d3926a95e5d46/namemash.py -o namemash-original.py
+cd $TOOLSDIR
 
 echo "[+] CewL"
 git clone https://github.com/digininja/CeWL
@@ -224,6 +252,13 @@ mkdir Mentalist
 cd Mentalist
 wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86_64.zip
 wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86.zip
+cd $TOOLSDIR
+
+echo "[+] Pydicator"
+git clone https://github.com/LandGrey/pydictor
+
+git clone https://github.com/nil0x42/duplicut
+cd duplicut/ && make
 cd $TOOLSDIR
 
 
