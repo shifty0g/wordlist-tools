@@ -14,12 +14,23 @@ Features
 * install-wordlists function that will pull down wordlists from popular wordlists collections on github such as Seclists, betterpasslists...est installing all them in /wordlists
 * Has variables so they can be quickly used 
 * a few aliass for quickly findings wordlists
+* install useful wordlists tools - CeWL, Pydog, namesmash, Mentalist
 
 
 
 Install
 ========
 This should work as a oneliner. let me know if there are issues 
+
+default directories
+
+```
+export WORDLISTDIR="/wordlists"
+export TOOLSDIR="/tools"
+```
+
+change these in the script if you want to use others
+
 
 **ZSH**
 
@@ -100,7 +111,7 @@ feel free to add more alias' in the `wordlists-tools.sh` file - just try to use 
 
 
 
-Resoruces
+Resources
 ===============
 https://www.outpost9.com/files/WordLists.html
 

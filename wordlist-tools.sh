@@ -1,5 +1,5 @@
 #!/bin/bash
-LAST_UPDATED="13/04/22"
+LAST_UPDATED="04/09/22"
 VERSION=0.9
 
 #
@@ -16,14 +16,18 @@ VERSION=0.9
 #
 # Tested on Kali Only 
 #
+# Other Sources 
+#
+#https://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/
+#https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm
 #
 
 export currentdir=$(pwd)
 
-
-
 # this is the main locatiomn where everything is 
 export WORDLISTDIR="/wordlists"
+
+export TOOLSDIR="/tools"
 
 
 ###########
@@ -196,15 +200,33 @@ echo "[+] Statistically Likely Usernames"
 git clone https://github.com/purpleracc00n/statistically-likely-usernames
 # orginal - https://github.com/insidetrust/statistically-likely-usernames
 
-
-# Other Sources 
-
-#https://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/
-#https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm
+echo "[+] kkrypt0nn Wordlists"
+git clone https://github.com/kkrypt0nn/Wordlists kkrypt0nn
 
 cd $currentdir
 }
 
+function wordlist-tools-install {
+
+cd $TOOLSDIR
+
+echo "[+] PyDog"
+git clone https://github.com/maudits/PyDog
+
+echo "[+] namemash"
+git clone https://github.com/purpleracc00n/namesmash
+
+echo "[+] CewL"
+git clone https://github.com/digininja/CeWL
+
+echo "[+] Mentalist"
+mkdir Mentalist
+cd Mentalist
+wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86_64.zip
+wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86.zip
+cd $TOOLSDIR
 
 
+cd $currentdir
+}
 
