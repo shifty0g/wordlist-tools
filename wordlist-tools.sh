@@ -20,7 +20,7 @@ VERSION=0.9
 #
 #https://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/
 #https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm
-#
+#https://ftp.funet.fi/pub/unix/security/passwd/crack/dictionaries/dictionaries/
 
 export currentdir=$(pwd)
 
@@ -251,17 +251,40 @@ echo "[+] Mentalist"
 mkdir Mentalist
 cd Mentalist
 wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86_64.zip
-wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86.zip
+gzip -d Mentalist-v1.0-Linux-x86_64.zip
+#wget https://github.com/sc0tfree/mentalist/releases/download/v1.0/Mentalist-v1.0-Linux-x86.zip
+#gzip -d Mentalist-v1.0-Linux-x86.zip
 cd $TOOLSDIR
 
 echo "[+] Pydicator"
 git clone https://github.com/LandGrey/pydictor
 
+echo "[+] Duplicut"
 git clone https://github.com/nil0x42/duplicut
 cd duplicut/ && make
 cd $TOOLSDIR
 
+echo "[+] Username_Generator"
+git clone https://github.com/therodri2/username_generator.git
 
+echo "[+] CUPP"
+git clone https://github.com/Mebus/cupp.git
+
+echo "[+] Default Creds Cheatsheet"
+git clone https://github.com/ihebski/DefaultCreds-cheat-sheet
+
+echo "[+] psudohash"
+git clone https://github.com/t3l3machus/psudohash
+cd ./psudohash
+chmod +x psudohash.py
+cd $TOOLSDIR
+
+echo "[+] bopscrk"
+pip install bopscrk
+#https://github.com/r3nt0n/bopscrk
+
+
+# end 
 cd $currentdir
 }
 
