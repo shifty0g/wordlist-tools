@@ -87,7 +87,6 @@ if [ ! -z "$1" ]||[ ! -z "$2" ]; then
 	echo "password" >> tempass
 	echo "qwerty" >> tempass
 	echo "Password123!" >> tempass
-	echo "password1" >> tempass
     echo "12345" >> tempass
 	echo "123456" >> tempass
 	echo "12345678" >> tempass
@@ -95,6 +94,29 @@ if [ ! -z "$1" ]||[ ! -z "$2" ]; then
 	echo "123456789" >> tempass
 	echo "111111" >> tempass
 	echo "liverpool" >> tempass
+	echo "abc123" >> tempass
+	echo "letmein" >> tempass
+	echo "enter" >> tempass
+	echo "admin" >> tempass
+	echo "pass" >> tempass
+	echo "access" >> tempass
+	echo "secret" >> tempass
+	echo "Welcome" >> tempass
+	echo "welcome123" >> tempass
+	echo "monkey" >> tempass
+	echo "monkey123" >> tempass
+	echo "password1" >> tempass
+	echo "welcome1" >> tempass
+	echo "password123" >> tempass
+	echo "Welcome123" >> tempass
+	echo "qwerty" >> tempass
+	echo "passw0rd" >> tempass
+	echo "p@ssword" >> tempass
+	echo "login" >> tempass
+	echo "PASSWORD"
+	echo "Password123" >> tempass
+	echo "shadow" >> tempass
+	echo "master" >> tempass
 	
 	# blanks 
 	echo "" >> tempass
@@ -211,9 +233,10 @@ echo "[+] OneListForAll"
 git clone https://github.com/six2dez/OneListForAll
 
 echo "[+] Default-Credentials"
-https://github.com/netbiosX/Default-Credentials
+git clone https://github.com/netbiosX/Default-Credentials
 
-#git clone https://github.com/danielmiessler/RobotsDisallowed.git
+echo "[+] RobotsDisallowed"
+git clone https://github.com/danielmiessler/RobotsDisallowed.git
 
 echo "[+] Brutas"
 git clone https://github.com/tasooshi/brutas
@@ -227,6 +250,15 @@ git clone https://github.com/purpleracc00n/statistically-likely-usernames
 
 echo "[+] kkrypt0nn Wordlists"
 git clone https://github.com/kkrypt0nn/Wordlists kkrypt0nn
+
+echo "[+] OneListForAll Web Wordlists"
+git clone https://github.com/six2dez/OneListForAll
+
+echo "[+] Kerberos_enum_userlists"
+git clone https://github.com/attackdebris/kerberos_enum_userlists
+
+#echo "[+] AssetNote *BIG*!!!"
+#wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
 
 cd $currentdir
 }
