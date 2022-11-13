@@ -66,6 +66,15 @@ export PASS_top500="/wordlists/my_wordlists/passwords/pass_top-500.txt"
 export PASS_top100k="$SECLISTSDIR/Passwords/Common-Credentials/10-million-password-list-top-100000.txt"
 
 
+
+function list () { for i in {$1..$2}; do echo $i; done }
+function list-a-z () { for i in {a..z}; do echo $i; done }
+function list-A-Z () { for i in {A..Z}; do echo $i; done }
+function list-0-10 () { for i in {0..10}; do echo $i; done }
+function list-0-100 () { for i in {0..100}; do echo $i; done }
+function list-000-100 () { for i in {000..100}; do echo $i; done }
+
+
 #
 # some helpful functions to quickly list out files 
 alias find-wordlists="wordlists"
