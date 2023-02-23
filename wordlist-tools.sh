@@ -2,7 +2,7 @@
 LAST_UPDATED="04/09/22"
 VERSION=0.9
 
-#
+
 # TO DO
 #==============
 # add more key wordlists
@@ -13,6 +13,7 @@ VERSION=0.9
 # add stuff in here for creating wordlists - look at what cool scripts exist
 # crunch,cewl, wordlist from site, wordlist from file https://github.com/maldevel/PenTestKit/tree/master/cracking
 # cupp - https://github.com/Mebus/cupp
+# add in my_scripts...WORDLIST vars for default pw lists. postgres,mysql,mssql...est
 #
 # Tested on Kali Only 
 #
@@ -21,6 +22,8 @@ VERSION=0.9
 #https://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/
 #https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm
 #https://ftp.funet.fi/pub/unix/security/passwd/crack/dictionaries/dictionaries/
+
+
 
 export currentdir=$(pwd)
 
@@ -40,11 +43,11 @@ export WORDLIST_ALL="$WORDLISTDIR/all.txt"
 export WORDLIST_CONTENTDISCOVERY="$WORDLISTDIR/content_discovery_all.txt"
 
 
+# SecLists
 export SECLISTSDIR="$WORDLISTDIR/SecLists"
-
 export WORDLIST_DNS_110K="$SECLISTSDIR//Discovery/DNS/subdomains-top1million-110000.txt"
 export WORDLIST_WEB_DIRS_LARGE="$SECLISTSDIR/Discovery/Web-Content/raft-large-directories.txt"
-export WORDLIST_WEB_DIRS_SMALL="$WSECLISTSDIR/Discovery/Web-Content/raft-small-directories.txt"
+export WORDLIST_WEB_DIRS_SMALL="$SECLISTSDIR/Discovery/Web-Content/raft-small-directories.txt"
 export WORDLIST_WEB_FILES_LARGE="$SECLISTSDIR/Discovery/Web-Content/raft-large-files.txt"
 export WORDLIST_WEB_FILES_SMALL="$SECLISTSDIR/Discovery/Web-Content/raft-small-files.txt"
 export WORDLIST_WEB_BIG="$SECLISTSDIR/Discovery/Web-Content/big.txt"
@@ -53,19 +56,20 @@ export WORDLIST_ROCKYOU="/usr/share/wordlists/rockyou.txt"
 export WORDLIST_USERNAMES_SHORT="$SECLISTSDIR/Usernames/top-usernames-shortlist.txt"
 export WORDLIST_USERNAMES_SHORT="$SECLISTSDIR/Usernames/top-usernames-shortlist.txt"
 export WORDLIST_SUBDOMAINS_TOP5k="$SECLISTSDIR/Discovery/DNS/subdomains-top1million-5000.txt"
+export WORDLIST_PASS_top100k="$SECLISTSDIR/Passwords/Common-Credentials/10-million-password-list-top-100000.txt"
+
 
 # metasploit wordlists - /usr/share/metasploit-framework/data/wordlists/
 export WORDLIST_MSF_SNMP="/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt"
 export WORDLIST_MSF_UNIX_USERS="/usr/share/metasploit-framework/data/wordlists/unix_users.txt"
 
 # Pass Lists
-export PASS_password="/wordlists/my_wordlists/passwords/pass_keyword-password.txt"
-export PASS_top16k="/wordlists/my_wordlists/passwords/pass_top-16k.txt"
-export PASS_top3k="/wordlists/my_wordlists/passwords/pass_top-3k.txt"
-export PASS_top500="/wordlists/my_wordlists/passwords/pass_top-500.txt"
-export PASS_top100k="$SECLISTSDIR/Passwords/Common-Credentials/10-million-password-list-top-100000.txt"
+export MYWORDLISTS="$WORDLISTDIR/my_wordlists"
 
-
+export WORDLIST_PASS_password="$MYWORDLISTS/passwords/pass_keyword-password.txt"
+export WORDLIST_PASS_top16k="$MYWORDLISTS/passwords/pass_top-16k.txt"
+export WORDLIST_PASS_top3k="$MYWORDLISTS/passwords/pass_top-3k.txt"
+export WORDLIST_PASS_top500="$MYWORDLISTS/passwords/pass_top-500.txt"
 
 function list () { for i in {$1..$2}; do echo $i; done }
 function list-a-z () { for i in {a..z}; do echo $i; done }
@@ -75,10 +79,12 @@ function list-0-100 () { for i in {0..100}; do echo $i; done }
 function list-000-100 () { for i in {000..100}; do echo $i; done }
 
 
-#
 # some helpful functions to quickly list out files 
 alias find-wordlists="wordlists"
 alias wordlists='find -L /wordlists -type f 2>/dev/null'
+alias my_wordlists='find -L /wordlists/my_wordlists -type f 2>/dev/null'
+
+
 alias wordlists-metasploit='find -L /usr/share/metasploit-framework/data/wordlists/ -type f 2>/dev/null'
 
 
@@ -238,9 +244,6 @@ git clone https://github.com/foospidy/payloads.git -o foospidy-payloads
 echo "[+] j3ers3-PassList"
 git clone https://github.com/j3ers3/PassList j3ers3-PassList
 
-echo "[+] OneListForAll"
-git clone https://github.com/six2dez/OneListForAll
-
 echo "[+] Default-Credentials"
 git clone https://github.com/netbiosX/Default-Credentials
 
@@ -268,6 +271,22 @@ git clone https://github.com/attackdebris/kerberos_enum_userlists
 
 #echo "[+] AssetNote *BIG*!!!"
 #wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
+
+echo "[+] bugbounty-wordlist"
+git clone https://github.com/buggysolid/bugbounty-wordlist
+
+
+echo "[+] carlospolop - Auto_Wordlists"
+git clone https://github.com/carlospolop/Auto_Wordlists
+
+echo "[+] Real-World"
+git clone https://github.com/trickest/wordlists real-world
+
+echo "[+] api_wordlist"
+git clone https://github.com/chrislockard/api_wordlist
+
+echo "[+] leaky-paths"
+git clone https://github.com/ayoubfathi/leaky-paths
 
 cd $currentdir
 }
@@ -320,12 +339,18 @@ cd ./psudohash
 chmod +x psudohash.py
 cd $TOOLSDIR
 
+
 echo "[+] bopscrk"
 pip install bopscrk
 #https://github.com/r3nt0n/bopscrk
 
 
+# https://github.com/ameenmaali/wordlistgen
+go get -u github.com/ameenmaali/wordlistgen
+
 # end 
 cd $currentdir
 }
+
+
 
